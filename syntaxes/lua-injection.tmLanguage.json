@@ -1,0 +1,31 @@
+{
+	"scopeName": "notepadpp-lua.injection",
+	"injectionSelector": "L:source.lua",
+	"patterns": [
+		{ "include": "#library-blue" },
+		{ "include": "#library-purple" },
+		{ "include": "#metafield" }
+	],
+	"repository": {
+		"library-blue": {
+			"match": "(?<![^.]\\.|:)\\b(coroutine|io|os|debug|bit(?:32)?|utf8|package)(\\.)([a-zA-Z_]\\w*)",
+			"captures": {
+				"1": { "name": "support.other.namespace-blue.lua" },
+				"2": { "name": "punctuation.separator.method.lua" },
+				"3": { "name": "support.function.library-blue.lua" }
+			}
+		},
+		"library-purple": {
+			"match": "(?<![^.]\\.|:)\\b(string|table|math)(\\.)([a-zA-Z_]\\w*)",
+			"captures": {
+				"1": { "name": "support.other.namespace-purple.lua" },
+				"2": { "name": "punctuation.separator.method.lua" },
+				"3": { "name": "support.function.library-purple.lua" }
+			}
+		},
+		"metafield": {
+			"match": "\\b(__index|__newindex|__call|__tostring|__len|__unm|__add|__sub|__mul|__div|__mod|__pow|__concat|__eq|__lt|__le|__gc|__mode|__metatable|__pairs|__ipairs|__close|__idiv|__band|__bor|__bxor|__bnot|__shl|__shr|__name)\\b",
+			"name": "entity.other.metafield.lua"
+		}
+	}
+}

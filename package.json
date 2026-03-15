@@ -1,0 +1,45 @@
+{
+	"name": "notepadpp-classic-theme-luals",
+	"displayName": "Notepad++ Classic Theme (LuaLS)",
+	"description": "Light theme inspired by Notepad++ with enhanced Lua support: semantic highlighting, cross-file alias detection, fold underlines, unused code differentiation",
+	"version": "0.2.0",
+	"publisher": "Ayni",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": ["Themes", "Programming Languages"],
+	"keywords": ["notepad++", "light theme", "lua", "luals", "semantic highlighting"],
+	"main": "./extension.js",
+	"activationEvents": ["*"],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Notepad++ Classic Light",
+				"uiTheme": "vs",
+				"path": "./themes/notepadpp-light.json"
+			}
+		],
+		"grammars": [
+			{
+				"scopeName": "notepadpp-lua.injection",
+				"path": "./syntaxes/lua-injection.tmLanguage.json",
+				"injectTo": ["source.lua"]
+			}
+		],
+		"configurationDefaults": {
+			"[lua]": {
+				"editor.semanticHighlighting.enabled": true
+			}
+		},
+		"configuration": {
+			"title": "Notepad++ Classic Light",
+			"properties": {
+				"notepadpp-classic-light.darkTerminal": {
+					"type": "boolean",
+					"default": true,
+					"description": "Use dark background for terminal"
+				}
+			}
+		}
+	}
+}
